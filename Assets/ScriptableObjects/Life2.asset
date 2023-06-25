@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d727f15ef26448e6aa8b08651d882548, type: 3}
+  m_Name: Life2
+  m_EditorClassIdentifier: 
+  <MinAngle>k__BackingField: 315
+  <MaxAngle>k__BackingField: 360
+  <Type>k__BackingField: 2
+  <Name>k__BackingField: +1 Life!
+  <Icon>k__BackingField: {fileID: 21300000, guid: 6dd98809192e24bb185001de5a7f7b38, type: 3}
+  <Value>k__BackingField: 1

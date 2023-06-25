@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3720245697118129268
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1281326328, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281326330, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_text
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128756, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496708271128759, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_Name
+      value: Prize Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496709388840473, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_text
+      value: Coins!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496710098049433, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664496710098049438, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2340e003a4a6745a8929491f3b365cea, type: 3}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
