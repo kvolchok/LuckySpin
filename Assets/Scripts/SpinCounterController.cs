@@ -6,20 +6,15 @@ public class SpinCounterController : MonoBehaviour
 {
     [SerializeField]
     private UnityEvent _zeroCountEvent;
-    private Action<int> _changeCountEvent;
+    public event Action<int> OnCountChanged;
     
     [field:SerializeField]
     public int RotationsCount { get; private set; }
 
-    public void Initialize(Action<int> changeCountEvent)
-    {
-        _changeCountEvent = changeCountEvent;
-    }
-    
     public void DecreaseCount()
     {
         RotationsCount--;
-        _changeCountEvent?.Invoke(RotationsCount);
+        OnCountChanged?.Invoke(RotationsCount);
         
         if (RotationsCount <= 0)
         {

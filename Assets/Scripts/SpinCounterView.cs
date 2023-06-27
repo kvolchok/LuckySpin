@@ -11,16 +11,32 @@ public class SpinCounterView : MonoBehaviour
     [SerializeField]
     private Transform _canvasRoot;
 
-    public void ChangeCount(int value)
+    private SpinCounterController _spinCounterController;
+
+    public void Initialize(SpinCounterController spinCounterController)
     {
-        SetScore(value);
+        _spinCounterController = spinCounterController;
+        
+        SetScore(_spinCounterController.RotationsCount);
+
+        _spinCounterController.OnCountChanged += ChangeCount;
+    }
+
+    private void SetScore(int count)
+    {
+        _rotationsCountLabel.text = count.ToString();
+    }
+    
+    private void ChangeCount(int count)
+    {
+        SetScore(count);
         
         var jetton = Instantiate(_jettonPrefab, _canvasRoot.transform);
         jetton.Fly();
     }
-    
-    public void SetScore(int value)
+
+    private void OnDestroy()
     {
-        _rotationsCountLabel.text = value.ToString();
+        _spinCounterController.OnCountChanged -= ChangeCount;
     }
 }

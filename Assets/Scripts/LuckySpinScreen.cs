@@ -19,8 +19,7 @@ public class LuckySpinScreen : MonoBehaviour
 
     private void Awake()
     {
-        _spinCounterView.SetScore(_spinCounterController.RotationsCount);
-        _spinCounterController.Initialize(_spinCounterView.ChangeCount);
+        _spinCounterView.Initialize(_spinCounterController);
 
         var prizeModels = _prizeManager.GetPrizeModels();
         _chest.Initialize(prizeModels, _walletManager.AddGoldScore, _walletManager.AddGemScore);
