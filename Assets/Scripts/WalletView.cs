@@ -5,52 +5,61 @@ using UnityEngine;
 public class WalletView : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI _goldValueLabel;
+    private TextMeshProUGUI _goldScoreLabel;
     [SerializeField]
-    private TextMeshProUGUI _gemValueLabel;
+    private TextMeshProUGUI _gemScoreLabel;
     
     [SerializeField]
     private float _moneyCalculationTime;
 
-    public void SetStartScore(int goldValue, int gemValue)
+    private Wallet _wallet;
+
+    public void Initialize(Wallet wallet)
     {
-        SetScore(_goldValueLabel, goldValue);
-        SetScore(_gemValueLabel, gemValue);
+        _wallet = wallet;
+        
+        SetScore(_goldScoreLabel, _wallet.GoldScore);
+        SetScore(_gemScoreLabel, _wallet.GemScore);
+
+        _wallet.GoldScoreChanged += OnGoldScoreChanged;
+        _wallet.GemScoreChanged += OnGemScoreChanged;
+    }
+    
+    private void SetScore(TextMeshProUGUI scoreLabel, int score)
+    {
+        scoreLabel.text = score.ToString();
     }
 
-    public void AddScore(PrizeModel prizeModel, int startMoneyScore, int delta)
+    private void OnGoldScoreChanged(int oldScore, int newScore)
     {
-        switch (prizeModel.Type)
-        {
-            case PrizeType.Gold:
-                StartCoroutine(ShowMoneyCalculationAnimation(_goldValueLabel, startMoneyScore, delta));
-                break;
-            case PrizeType.Gem:
-                StartCoroutine(ShowMoneyCalculationAnimation(_gemValueLabel, startMoneyScore, delta));
-                break;
-        }
+        StartCoroutine(ShowMoneyCalculationAnimation(_goldScoreLabel, oldScore, newScore));
+    }
+    
+    private void OnGemScoreChanged(int oldScore, int newScore)
+    {
+        StartCoroutine(ShowMoneyCalculationAnimation(_gemScoreLabel, oldScore, newScore));
     }
 
-    private void SetScore(TextMeshProUGUI moneyValueLabel, int moneyScore)
+    private IEnumerator ShowMoneyCalculationAnimation(TextMeshProUGUI scoreLabel, int oldScore, int newScore)
     {
-        moneyValueLabel.text = moneyScore.ToString();
-    }
-
-    private IEnumerator ShowMoneyCalculationAnimation(TextMeshProUGUI moneyValueLabel, int startMoneyScore, int delta)
-    {
-        var newMoneyScore = startMoneyScore + delta;
         var currentTime = 0f;
 
         while (currentTime <= _moneyCalculationTime)
         {
             var progress = currentTime / _moneyCalculationTime;
-            var currentScore = (int)Mathf.Lerp(startMoneyScore, newMoneyScore, progress);
+            var currentScore = (int)Mathf.Lerp(oldScore, newScore, progress);
             currentTime += Time.deltaTime;
-            SetScore(moneyValueLabel, currentScore);
+            SetScore(scoreLabel, currentScore);
 
             yield return null;
         }
         
-        SetScore(moneyValueLabel, newMoneyScore);
+        SetScore(scoreLabel, newScore);
+    }
+
+    private void OnDestroy()
+    {
+        _wallet.GoldScoreChanged -= OnGoldScoreChanged;
+        _wallet.GemScoreChanged -= OnGemScoreChanged;
     }
 }

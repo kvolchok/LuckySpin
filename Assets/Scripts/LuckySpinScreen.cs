@@ -18,8 +18,7 @@ public class LuckySpinScreen : MonoBehaviour
     private void Awake()
     {
         _spinCounterView.Initialize(_spinCounterController);
-        _wallet.Initialize(_walletView.AddScore);
-        
+        _walletView.Initialize(_wallet);
         _chest.Initialize(_wallet);
     }
 }

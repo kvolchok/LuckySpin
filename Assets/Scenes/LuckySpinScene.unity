@@ -894,7 +894,7 @@ GameObject:
   - component: {fileID: 264686530}
   - component: {fileID: 264686529}
   m_Layer: 5
-  m_Name: GemValue
+  m_Name: GemScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8647,8 +8647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2d8dd6679447f2ae6a842c734f7640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goldValueLabel: {fileID: 1128943693}
-  _gemValueLabel: {fileID: 264686529}
+  _goldScoreLabel: {fileID: 1128943693}
+  _gemScoreLabel: {fileID: 264686529}
   _moneyCalculationTime: 3
 --- !u!114 &876593817
 MonoBehaviour:
@@ -8662,23 +8662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d486e6737154f34be16affa81a00d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setStartScoreEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 876593816}
-        m_TargetAssemblyTypeName: WalletView, Assembly-CSharp
-        m_MethodName: SetStartScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _goldScore: 100
-  _gemScore: 10
+  <GoldScore>k__BackingField: 100
+  <GemScore>k__BackingField: 10
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -9572,7 +9557,7 @@ GameObject:
   - component: {fileID: 1128943694}
   - component: {fileID: 1128943693}
   m_Layer: 5
-  m_Name: GoldValue
+  m_Name: GoldScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

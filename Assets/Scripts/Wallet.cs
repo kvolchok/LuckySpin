@@ -1,33 +1,28 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
-    [SerializeField]
-    private UnityEvent<int, int> _setStartScoreEvent;
-    private Action<PrizeModel, int, int> _increaseScoreEvent;
+    public event Action<int, int> GoldScoreChanged;
+    public event Action<int, int> GemScoreChanged; 
 
-    [SerializeField]
-    private int _goldScore;
-    [SerializeField]
-    private int _gemScore;
+    [field:SerializeField]
+    public int GoldScore { get; private set; }
+    [field:SerializeField]
+    public int GemScore { get; private set; }
 
-    public void Initialize(Action<PrizeModel, int, int> increaseScoreEvent)
+    public void AddGoldScore(int delta)
     {
-        _increaseScoreEvent = increaseScoreEvent;
+        var oldScore = GoldScore;
+        GoldScore += delta;
         
-        _setStartScoreEvent?.Invoke(_goldScore, _gemScore);
+        GoldScoreChanged?.Invoke(oldScore, GoldScore);
     }
-    
-    public void AddGoldScore(PrizeModel prizeModel, int value)
+    public void AddGemScore(int delta)
     {
-        _increaseScoreEvent?.Invoke(prizeModel, _goldScore, value);
-        _goldScore += value;
-    }
-    public void AddGemScore(PrizeModel prizeModel, int value)
-    {
-        _increaseScoreEvent?.Invoke(prizeModel, _gemScore, value);
-        _gemScore += value;
+        var oldScore = GemScore;
+        GemScore += delta;
+        
+        GemScoreChanged?.Invoke(oldScore, GemScore);
     }
 }

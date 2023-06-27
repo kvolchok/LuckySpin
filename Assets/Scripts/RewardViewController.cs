@@ -41,10 +41,10 @@ public class RewardViewController : MonoBehaviour
             switch (prize.Type)
             {
                 case PrizeType.Gold:
-                    _wallet.AddGoldScore(prize, prize.Value);
+                    _wallet.AddGoldScore(prize.Value);
                     break;
                 case PrizeType.Gem:
-                    _wallet.AddGemScore(prize, prize.Value);
+                    _wallet.AddGemScore(prize.Value);
                     break;
             }
         }
