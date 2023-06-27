@@ -3,9 +3,9 @@ using UnityEngine;
 public class LuckySpinScreen : MonoBehaviour
 {
     [SerializeField]
-    private RotationJettonManager _rotationJettonManager;
+    private SpinCounterController _spinCounterController;
     [SerializeField]
-    private RotationJettonView _rotationJettonView;
+    private SpinCounterView _spinCounterView;
 
     [SerializeField]
     private PrizeManager _prizeManager;
@@ -19,8 +19,8 @@ public class LuckySpinScreen : MonoBehaviour
 
     private void Awake()
     {
-        _rotationJettonView.SetScore(_rotationJettonManager.RotationsCount);
-        _rotationJettonManager.Initialize(_rotationJettonView.ChangeCount);
+        _spinCounterView.SetScore(_spinCounterController.RotationsCount);
+        _spinCounterController.Initialize(_spinCounterView.ChangeCount);
 
         var prizeModels = _prizeManager.GetPrizeModels();
         _chest.Initialize(prizeModels, _walletManager.AddGoldScore, _walletManager.AddGemScore);

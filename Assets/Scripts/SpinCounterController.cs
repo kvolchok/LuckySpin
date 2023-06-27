@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RotationJettonManager : MonoBehaviour
+public class SpinCounterController : MonoBehaviour
 {
     [SerializeField]
     private UnityEvent _zeroCountEvent;

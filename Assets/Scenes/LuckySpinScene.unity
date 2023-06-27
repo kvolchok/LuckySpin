@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bcd919929d840e4ba80681bf3031111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationJettonManager: {fileID: 745383406}
-  _rotationJettonView: {fileID: 745383405}
+  _spinCounterController: {fileID: 745383406}
+  _spinCounterView: {fileID: 745383405}
   _prizeManager: {fileID: 110175867}
   _chest: {fileID: 1126757326}
   _walletManager: {fileID: 876593817}
@@ -8218,9 +8218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationsCountLabel: {fileID: 1602215580}
-  _rotationJettonPrefab: {fileID: 8042915947687428252, guid: 52307ca4755e14247b20e530860956b3, type: 3}
+  _jettonPrefab: {fileID: 7097729745754922219, guid: 52307ca4755e14247b20e530860956b3, type: 3}
   _canvasRoot: {fileID: 110175862}
-  _destructionDelay: 1
 --- !u!114 &745383406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17547,7 +17546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8042915947687428253, guid: 52307ca4755e14247b20e530860956b3, type: 3}
       propertyPath: m_Name
-      value: RotationJettonIcon
+      value: JettonIcon
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 999464757355933295, guid: 52307ca4755e14247b20e530860956b3, type: 3}
