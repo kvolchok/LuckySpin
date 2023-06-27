@@ -324,9 +324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spinCounterController: {fileID: 745383406}
   _spinCounterView: {fileID: 745383405}
-  _prizeManager: {fileID: 110175867}
   _chest: {fileID: 1126757326}
-  _walletManager: {fileID: 876593817}
+  _wallet: {fileID: 876593817}
   _walletView: {fileID: 876593816}
 --- !u!114 &110175867
 MonoBehaviour:
@@ -9478,6 +9477,7 @@ GameObject:
   - component: {fileID: 1126757325}
   - component: {fileID: 1126757327}
   - component: {fileID: 1126757326}
+  - component: {fileID: 1126757328}
   m_Layer: 5
   m_Name: YourChest
   m_TagString: Untagged
@@ -9520,22 +9520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aaacf1b902a4764b30da3712bd4a4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openChestEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1452586423}
-        m_TargetAssemblyTypeName: RewardViewController, Assembly-CSharp
-        m_MethodName: InitializeRewards
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _chestButton: {fileID: 0}
+  _rewardsController: {fileID: 1126757328}
   _putPrizeAnimationDelay: 3
   _moveChestAnimationDelay: 8
 --- !u!95 &1126757327
@@ -9558,6 +9543,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1126757328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126757324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857d0250ea6c499ea087c7b4c0ed30a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rewards:
+  - {fileID: 2078864012}
+  - {fileID: 1065755565}
+  - {fileID: 1898325872}
+  - {fileID: 966467386}
 --- !u!1 &1128943691
 GameObject:
   m_ObjectHideFlags: 0
@@ -15257,7 +15259,6 @@ GameObject:
   - component: {fileID: 1452586421}
   - component: {fileID: 1452586420}
   - component: {fileID: 1452586419}
-  - component: {fileID: 1452586423}
   m_Layer: 5
   m_Name: ChestButton
   m_TagString: Untagged
@@ -15396,23 +15397,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452586417}
   m_CullTransparentMesh: 0
---- !u!114 &1452586423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452586417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857d0250ea6c499ea087c7b4c0ed30a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rewards:
-  - {fileID: 2078864012}
-  - {fileID: 1065755565}
-  - {fileID: 1898325872}
-  - {fileID: 966467386}
 --- !u!1 &1456437443
 GameObject:
   m_ObjectHideFlags: 0

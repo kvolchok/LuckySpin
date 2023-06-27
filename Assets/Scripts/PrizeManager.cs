@@ -11,12 +11,7 @@ public class PrizeManager : MonoBehaviour
     private PrizeModel[] _prizeModels;
     [SerializeField]
     private PrizeScreenByType[] _prizeScreens;
-    
-    public PrizeModel[] GetPrizeModels()
-    {
-        return _prizeModels;
-    }
-    
+
     public void AddPrize(float angle)
     {
         foreach (var model in _prizeModels)

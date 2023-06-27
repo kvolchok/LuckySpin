@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WalletManager : MonoBehaviour
+public class Wallet : MonoBehaviour
 {
     [SerializeField]
     private UnityEvent<int, int> _setStartScoreEvent;

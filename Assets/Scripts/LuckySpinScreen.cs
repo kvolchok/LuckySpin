@@ -6,24 +6,20 @@ public class LuckySpinScreen : MonoBehaviour
     private SpinCounterController _spinCounterController;
     [SerializeField]
     private SpinCounterView _spinCounterView;
-
-    [SerializeField]
-    private PrizeManager _prizeManager;
+    
     [SerializeField]
     private Chest _chest;
 
     [SerializeField]
-    private WalletManager _walletManager;
+    private Wallet _wallet;
     [SerializeField]
     private WalletView _walletView;
 
     private void Awake()
     {
         _spinCounterView.Initialize(_spinCounterController);
-
-        var prizeModels = _prizeManager.GetPrizeModels();
-        _chest.Initialize(prizeModels, _walletManager.AddGoldScore, _walletManager.AddGemScore);
+        _wallet.Initialize(_walletView.AddScore);
         
-        _walletManager.Initialize(_walletView.AddScore);
+        _chest.Initialize(_wallet);
     }
 }
