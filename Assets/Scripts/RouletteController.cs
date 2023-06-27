@@ -9,6 +9,8 @@ public class RouletteController : MonoBehaviour
     private UnityEvent _spinEvent;
     [SerializeField]
     private UnityEvent<float> _endSpinningEvent;
+
+    private float _halfSectionSize => 360 / _sectionsCount / 2;
     
     [SerializeField]
     private Transform _wheel;
@@ -25,7 +27,7 @@ public class RouletteController : MonoBehaviour
     private float _minRotationSpeed;
 
     [SerializeField]
-    private float _wheelRotationDelta = 22.5f;
+    private float _sectionsCount = 8;
 
     [UsedImplicitly]
     public void Spin()
@@ -53,6 +55,6 @@ public class RouletteController : MonoBehaviour
         }
         
         _backlight.SetActive(false);
-        _endSpinningEvent?.Invoke((_wheel.eulerAngles.z + _wheelRotationDelta) % 360);
+        _endSpinningEvent?.Invoke((_wheel.eulerAngles.z + _halfSectionSize) % 360);
     }
 }
