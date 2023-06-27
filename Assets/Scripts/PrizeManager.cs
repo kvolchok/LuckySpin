@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,17 +9,9 @@ public class PrizeManager : MonoBehaviour
     
     [SerializeField]
     private PrizeModel[] _prizeModels;
-
     [SerializeField]
-    private PrizeScreen _prizeScreenPrefab;
-    [SerializeField]
-    private PrizeScreen _prizeScreenTypeMoneyPrefab;
-    [SerializeField]
-    private PrizeScreen _prizeScreenTypeSkeletonPrefab;
-
-    [SerializeField]
-    private float _destroyDelay;
-
+    private PrizeScreenByType[] _prizeScreens;
+    
     public PrizeModel[] GetPrizeModels()
     {
         return _prizeModels;
@@ -27,46 +19,27 @@ public class PrizeManager : MonoBehaviour
     
     public void AddPrize(float angle)
     {
-        foreach (var prizeModel in _prizeModels)
+        foreach (var model in _prizeModels)
         {
-            if (angle < prizeModel.MinAngle || angle > prizeModel.MaxAngle)
+            if (angle < model.MinAngle || angle > model.MaxAngle)
             {
                 continue;
             }
             
-            switch (prizeModel.Type)
-            {
-                case PrizeType.Gold or PrizeType.Gem:
-                {
-                    var prizeScreenMoney = Instantiate(_prizeScreenTypeMoneyPrefab, transform);
-                    prizeScreenMoney.Initialize(prizeModel);
-                    _addPrizeEvent?.Invoke(prizeModel);
-                    StartCoroutine(DestroyPrizeCoroutine(prizeScreenMoney));
-                    break;
-                }
-                case PrizeType.Life or PrizeType.Relic:
-                {
-                    var prizeScreenItem = Instantiate(_prizeScreenPrefab, transform);
-                    prizeScreenItem.Initialize(prizeModel);
-                    _addPrizeEvent?.Invoke(prizeModel);
-                    StartCoroutine(DestroyPrizeCoroutine(prizeScreenItem));
-                    break;
-                }
-                case PrizeType.Skeleton:
-                    var prizeScreenSkeleton = Instantiate(_prizeScreenTypeSkeletonPrefab, transform);
-                    prizeScreenSkeleton.Initialize(prizeModel);
-                    StartCoroutine(DestroyPrizeCoroutine(prizeScreenSkeleton));
-                    break;
-            }
-
+            ShowScreen(model);
             break;
         }
     }
 
-    private IEnumerator DestroyPrizeCoroutine(PrizeScreen prizeScreen)
+    private void ShowScreen(PrizeModel model)
     {
-        yield return new WaitForSeconds(_destroyDelay);
-        
-        Destroy(prizeScreen.gameObject);
+        var screenByType = _prizeScreens.First(screenByType => screenByType.Type == model.Type);
+        var screen = Instantiate(screenByType.Screen, transform);
+        screen.Initialize(model);
+
+        if (screenByType.Type != PrizeType.Skeleton)
+        {
+            _addPrizeEvent?.Invoke(model);
+        }
     }
 }

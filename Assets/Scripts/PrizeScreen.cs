@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,5 +17,11 @@ public class PrizeScreen : MonoBehaviour
         _name.text = prizeModel.Name;
         _icon.sprite = prizeModel.Icon;
         _value.text = prizeModel.Value.ToString();
+    }
+
+    [UsedImplicitly]
+    private void DestroyScreen()
+    {
+        Destroy(gameObject);
     }
 }

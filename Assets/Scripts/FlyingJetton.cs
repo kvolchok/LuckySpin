@@ -7,8 +7,6 @@ public class FlyingJetton : MonoBehaviour
     
     [SerializeField]
     private Animator _animator;
-    [SerializeField]
-    private float _destructionDelay;
 
     public void Fly()
     {

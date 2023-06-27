@@ -364,10 +364,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92c5fc89e2e914035a2f2700f652a2e2, type: 2}
   - {fileID: 11400000, guid: 328c777b92e8c461a96c0814b11adc15, type: 2}
   - {fileID: 11400000, guid: 852c330bff2fe445faa45d8df542a4b9, type: 2}
-  _prizeScreenPrefab: {fileID: 3828155821646474191, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
-  _prizeScreenTypeMoneyPrefab: {fileID: 468551038013679547, guid: ad6548664860f4b4287766297efbe85d, type: 3}
-  _prizeScreenTypeSkeletonPrefab: {fileID: 7134295680925287362, guid: 5d1ccd3c5460b4e609d49271f3c70945, type: 3}
-  _destroyDelay: 3
+  _prizeScreens:
+  - <Type>k__BackingField: 0
+    <Screen>k__BackingField: {fileID: 468551038013679547, guid: ad6548664860f4b4287766297efbe85d, type: 3}
+  - <Type>k__BackingField: 1
+    <Screen>k__BackingField: {fileID: 468551038013679547, guid: ad6548664860f4b4287766297efbe85d, type: 3}
+  - <Type>k__BackingField: 2
+    <Screen>k__BackingField: {fileID: 3828155821646474191, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+  - <Type>k__BackingField: 3
+    <Screen>k__BackingField: {fileID: 3828155821646474191, guid: b3ace26abd7a845569046b9ec75f51d3, type: 3}
+  - <Type>k__BackingField: 4
+    <Screen>k__BackingField: {fileID: 7134295680925287362, guid: 5d1ccd3c5460b4e609d49271f3c70945, type: 3}
 --- !u!1001 &194915273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15239,7 +15246,7 @@ MonoBehaviour:
   _minRotationTime: 1
   _maxRotationSpeed: 5
   _minRotationSpeed: 3
-  _wheelRotationDelta: 22.5
+  _sectionsCount: 8
 --- !u!1 &1452586417
 GameObject:
   m_ObjectHideFlags: 0
