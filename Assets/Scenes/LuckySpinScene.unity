@@ -491,7 +491,6 @@ GameObject:
   - component: {fileID: 222583765}
   - component: {fileID: 222583764}
   - component: {fileID: 222583763}
-  - component: {fileID: 222583762}
   m_Layer: 5
   m_Name: ClaimButton
   m_TagString: Untagged
@@ -520,26 +519,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 300, y: 120}
   m_Pivot: {x: 0.5, y: 0}
---- !u!95 &222583762
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222583760}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0180e0ca6a39e44ed9794845d158bda6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &222583763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9497,6 +9476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1126757325}
+  - component: {fileID: 1126757327}
   - component: {fileID: 1126757326}
   m_Layer: 5
   m_Name: YourChest
@@ -9555,11 +9535,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _chestButton: {fileID: 0}
   _putPrizeAnimationDelay: 3
   _moveChestAnimationDelay: 8
-  _background: {fileID: 1795288935}
-  _name: {fileID: 1723634053}
-  _claimButton: {fileID: 222583760}
+--- !u!95 &1126757327
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126757324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0180e0ca6a39e44ed9794845d158bda6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1128943691
 GameObject:
   m_ObjectHideFlags: 0
@@ -15259,7 +15257,6 @@ GameObject:
   - component: {fileID: 1452586421}
   - component: {fileID: 1452586420}
   - component: {fileID: 1452586419}
-  - component: {fileID: 1452586422}
   - component: {fileID: 1452586423}
   m_Layer: 5
   m_Name: ChestButton
@@ -15300,7 +15297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452586417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -15349,6 +15346,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1452586419}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1452586420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15387,26 +15396,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452586417}
   m_CullTransparentMesh: 0
---- !u!95 &1452586422
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452586417}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0180e0ca6a39e44ed9794845d158bda6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1452586423
 MonoBehaviour:
   m_ObjectHideFlags: 0

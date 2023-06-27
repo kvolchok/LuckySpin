@@ -25,13 +25,6 @@ public class Chest : MonoBehaviour
     [SerializeField]
     private float _moveChestAnimationDelay;
 
-    [SerializeField]
-    private GameObject _background;
-    [SerializeField]
-    private GameObject _name;
-    [SerializeField]
-    private GameObject _claimButton;
-    
     private Animator _animator;
 
     public void Initialize(PrizeModel[] prizeModels,
@@ -50,7 +43,7 @@ public class Chest : MonoBehaviour
         _claimGoldEvent = claimGoldEvent;
         _claimGemsEvent = claimGemsEvent;
         
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     public void Add(PrizeModel prizeModel)
@@ -68,16 +61,14 @@ public class Chest : MonoBehaviour
     public void Open()
     {
         _animator.SetTrigger(_open);
-        _claimButton.SetActive(true);
-        
+
         _openChestEvent?.Invoke(_prizes);
     }
 
     public void Claim()
     {
         _animator.SetTrigger(_hide);
-        _background.SetActive(false);
-        
+
         foreach (var (key, value) in _prizes)
         {
             if (value == 0)
@@ -108,8 +99,6 @@ public class Chest : MonoBehaviour
     {
         yield return new WaitForSeconds(_moveChestAnimationDelay);
         
-        _name.SetActive(false);
-        _background.SetActive(true);
         _animator.SetTrigger(_move);
     }
 }
