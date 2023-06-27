@@ -1,4 +1,4 @@
-using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class FlyingJetton : MonoBehaviour
@@ -12,15 +12,12 @@ public class FlyingJetton : MonoBehaviour
 
     public void Fly()
     {
-        StartCoroutine(ShowFlyingAnimation());
-    }
-    
-    private IEnumerator ShowFlyingAnimation()
-    {
         _animator.SetTrigger(_flyKey);
+    }
 
-        yield return new WaitForSeconds(_destructionDelay);
-        
+    [UsedImplicitly]
+    private void DestroyJetton()
+    {
         Destroy(gameObject);
     }
 }
