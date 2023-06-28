@@ -2,20 +2,23 @@ using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class RouletteController : MonoBehaviour
 {
     [SerializeField]
-    private UnityEvent _spinEvent;
-    [SerializeField]
     private UnityEvent<float> _endSpinningEvent;
 
     private float _halfSectionSize => 360 / _sectionsCount / 2;
-    
+
     [SerializeField]
-    private Transform _wheel;
+    private SpinCounterController _spinCounter;
+    [SerializeField]
+    private Button _spinButton;
     [SerializeField]
     private GameObject _backlight;
+    [SerializeField]
+    private Transform _wheel;
 
     [SerializeField]
     private float _maxRotationTime;
@@ -32,8 +35,9 @@ public class RouletteController : MonoBehaviour
     [UsedImplicitly]
     public void Spin()
     {
+        _spinButton.enabled = false;
         _backlight.SetActive(true);
-        _spinEvent?.Invoke();
+        _spinCounter.DecreaseCount();
         StartCoroutine(SpinCoroutine());
     }
 
@@ -56,5 +60,6 @@ public class RouletteController : MonoBehaviour
         
         _backlight.SetActive(false);
         _endSpinningEvent?.Invoke((_wheel.eulerAngles.z + _halfSectionSize) % 360);
+        _spinButton.enabled = true;
     }
 }
