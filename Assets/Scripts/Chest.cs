@@ -22,10 +22,7 @@ public class Chest : MonoBehaviour
     public void Initialize(Wallet wallet)
     {
         _rewardsController.Initialize(wallet);
-    }
-
-    private void Awake()
-    {
+        
         _animator = GetComponent<Animator>();
     }
 
