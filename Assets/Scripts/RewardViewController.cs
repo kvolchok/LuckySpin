@@ -31,20 +31,20 @@ public class RewardViewController : MonoBehaviour
     
     public void ClaimRewards()
     {
-        foreach (var prize in _prizes)
+        foreach (var reward in _rewards)
         {
-            if (prize.Value == 0)
+            if (reward.Value == 0)
             {
                 continue;
             }
             
-            switch (prize.Type)
+            switch (reward.Type)
             {
                 case PrizeType.Gold:
-                    _wallet.AddGoldScore(prize.Value);
+                    _wallet.AddGoldScore(reward.Value);
                     break;
                 case PrizeType.Gem:
-                    _wallet.AddGemScore(prize.Value);
+                    _wallet.AddGemScore(reward.Value);
                     break;
             }
         }
